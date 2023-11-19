@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Apply Filters:</h3>
+
+            <div class="search-bar">
+                <label for="Level" class="form-field">Level: </label>
+                <input type="text" id="Level" [(ngModel)]="LevelFilter" class="form-control input-field"
+                    placeholder="Enter Level Value">
+
+                <label for="Message" class="form-field">Message: </label>
+                <input type="text" id="Message" [(ngModel)]="MessageFilter" class="form-control input-field"
+                    placeholder="Enter Message Value">
+
+                <label for="ResourceID" class="form-field">ResourceID: </label>
+                <input type="text" id="ResourceID" [(ngModel)]="ResourceIdFilter" class="form-control input-field"
+                    placeholder="Enter ResourceID Value">
+
+                <label for="TimeStamp" class="form-field">TimeStamp: </label>
+                <input type="text" id="TimeStamp" [(ngModel)]="TimeStampFilter" class="form-control input-field"
+                    placeholder="Enter TimeStamp Value">
+
+                <label for="TimeStampFrom" class="form-field">TimeStampFrom: </label>
+                <input type="text" id="TimeStampFrom" [(ngModel)]="TimeStampFromFilter" class="form-control input-field"
+                    placeholder="Enter TimeStampFrom Value">
+
+                <label for="TimeStampTo" class="form-field">TimeStampTo: </label>
+                <input type="text" id="TimeStampTo" [(ngModel)]="TimeStampToFilter" class="form-control input-field"
+                    placeholder="Enter TimeStampTo Value">
+
+                <label for="TraceId" class="form-field">TraceId: </label>
+                <input type="text" id="TraceId" [(ngModel)]="TraceIdFilter" class="form-control input-field"
+                    placeholder="Enter TraceId Value">
+
+                <label for="SpanId" class="form-field">SpanId: </label>
+                <input type="text" id="SpanId" [(ngModel)]="SpanIdFilter" class="form-control input-field"
+                    placeholder="Enter SpanId Value">
+
+                <label for="Commit" class="form-field">Commit: </label>
+                <input type="text" id="Commit" [(ngModel)]="CommitFilter" class="form-control input-field"
+                    placeholder="Enter Commit Value">
+
+                <label for="ParentResourceId" class="form-field">ParentResourceId: </label>
+                <input type="text" id="ParentResourceId" [(ngModel)]="ParentResourceIdFilter"
+                    class="form-control input-field" placeholder="Enter ParentResourceId Value">
+                <!-- Search Bar -->
+                <label for="searchQuery" class="form-field">Search Text: </label>
+                <input type="text" id="searchQuery" [(ngModel)]="searchInput" class="form-control input-field"
+                    placeholder="Enter search keyword...">
+                <br>
+                <button class="btn" (click)="searchLogs()">Search</button>
+            </div>
+        </div>
+
+        <!-- Insert New Log Data Section -->
+        <div class="col-sm-6">
+            <div class="new-log-section">
+                <label for="newLogData" class="form-field">New Log Data:</label>
+                <br>
+                <textarea id="newLogData" class="form-control input-field" [(ngModel)]="newLogData"
+                    placeholder="Paste Valid JSON object here..." rows="10"></textarea>
+                <br>
+                <button class="btn" (click)="insertLog()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Log Display Table Section -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="log-display-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Level</th>
+                            <th>Message</th>
+                            <th>ResourceID</th>
+                            <th>TimeStamp</th>
+                            <th>SpanId</th>
+                            <th>Commit</th>
+                            <th>Metadata.ParentResourceId</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let logEntry of pagedLogEntries">
+                            <td>{{ logEntry.id }}</td>
+                            <td>{{ logEntry.level_data }}</td>
+                            <td>{{ logEntry.message_data }}</td>
+                            <td>{{ logEntry.resourceid }}</td>
+                            <td>{{ logEntry.time_stamp }}</td>
+                            <td>{{ logEntry.spanid }}</td>
+                            <td>{{ logEntry.commit_data }}</td>
+                            <td>{{ logEntry.parentresourceid }}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <mat-paginator [pageSize]="pageSize" [pageIndex]="pageIndex" [length]="totalLogEntries"
+                    (page)="pageChanged($event)">
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

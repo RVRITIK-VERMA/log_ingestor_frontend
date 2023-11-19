@@ -1,0 +1,93 @@
+/* log-data.component.css */
+
+/* Container Styles */
+.container {
+  margin: 20px;
+}
+
+/* Filter Section Styles */
+.col-sm-6 {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.selected-filters {
+  margin-bottom: 10px;
+}
+
+.selected-filter {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.remove-filter {
+  cursor: pointer;
+  margin-left: 5px;
+  color: #d9534f;
+  font-weight: bold;
+}
+
+.filter-dropdown {
+  margin-bottom: 10px;
+}
+
+/* Search Bar Styles */
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.form-field {
+  font-weight: bold;
+}
+
+.input-field {
+  width: 70%;
+  padding: 8px;
+}
+
+/* New Log Section Styles */
+.new-log-section {
+  margin-top: 20px;
+}
+
+/* Log Display Table Styles */
+.log-display-table {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Button Styles */
+button {
+  cursor: pointer;
+  padding: 8px 16px;
+  background-color: #5bc0de;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: #31b0d5;
+}
+
+/* Add more styles based on your requirements */
