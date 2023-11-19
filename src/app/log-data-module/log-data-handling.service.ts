@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,13 @@ export class LogDataHandlingService {
 
   getLogsData(data:any) {
     return this.http.post(
-      'http://localhost:3000/api/getLogsData',data,this.options
+      environment.localUrl+"api/getLogsData",data,this.options
     );
-
   }
 
   getLogsDataWithFilter(data:any) {
     return this.http.post(
-      'http://localhost:3000/api/getLogsData',data,this.options
+      environment.localUrl+"api/getLogsData",data,this.options
     );
   }
 
